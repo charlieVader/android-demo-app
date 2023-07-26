@@ -1,26 +1,33 @@
 package com.bonzzu.demo.util
 
-object Util {
 
+fun main(){
+    val numbers = listOf(1,2,3,4,5)
+    val numbersToAvg = listOf(1.5,1.5,2.5)
+    println("Result Sum is ${Util.calculateSum(numbers)}")
+    println("Result Avg is ${Util.calculateAverage(numbersToAvg)}")
+
+}
+
+object Util {
     //Exercise 1
     //Refactor the following function
     fun calculateSum(numbers: List<Int>): Int {
-        var result = 0
-        for (i in 0 until numbers.size) {
-            result += numbers[i]
-        }
-        return result
+        return numbers.sum()
     }
 
     //Exercise 2
     //Find the errors
-    fun calculateAverage(numbers: List<Int>): Double {
-        var sum = 0
-        for (i in 1..numbers.size) {
-            sum += numbers[i]
+
+    //Errors found, conversion type and index of bounds
+    fun calculateAverage(numbers: List<Double>): Double {
+        var sum = 0.0
+        for (element in numbers) {
+            sum += element
         }
         return sum / numbers.size
     }
+
 
     //Exercise 3
     //Implement a function that makes an HTTP request using Retrofit
